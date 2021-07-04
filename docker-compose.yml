@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  # Database MySQL
+  jaz_4_mysql_local:
+    image: mysql:5.7.33
+    volumes:
+      - jaz_4_database_local:/var/lib/mysql
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: movie_jaz_4
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - jaz_4_backend_local
+
+  # phpmyadmin
+  jaz_4_phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - jaz_4_mysql_local
+    restart: always
+    ports:
+      - "9000:80"
+    environment:
+      PMA_HOSTS: jaz_4_mysql_local
+      MYSQL_ROOT_PASSWORD: password
+      UPLOAD_LIMIT: 512M
+    networks:
+      - jaz_4_backend_local
+
+# Names for networks
+networks:
+  jaz_4_backend_local:
+    driver: bridge
+
+# Names for volumes
+volumes:
+  jaz_4_database_local:
