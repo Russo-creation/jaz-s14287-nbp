@@ -1,6 +1,7 @@
 package com.example.jaznumer_indeksunbp.nbp.model;
 
 
+import java.util.List;
 
 public class Root{
     public String data;
@@ -21,5 +22,6 @@ public class Root{
     public void setCena(double cena) {
         this.cena = cena;
     }
+
 }
 

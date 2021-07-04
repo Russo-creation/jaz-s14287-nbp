@@ -21,8 +21,9 @@ public class NbpService {
     }
 
     public NbpResponse calculateRootForCurrency(String startDate, String endDate){
-        String url = " http://api.nbp.pl/api/cenyzlota/"+startDate+"/"+endDate;
+        String url = "http://api.nbp.pl/api/cenyzlota/"+startDate+"/"+endDate;
         Root root = restTemplate.getForObject(url, Root.class);
+
 
 
 //        double average = calculate(root.getRates());
@@ -42,19 +43,5 @@ public class NbpService {
         nbpResponse.setCreatedAt(LocalDateTime.now());
         return nbpResponse;
     }
-
-//    public double calculate(List<Rate> rateList){
-//        double sum = 0;
-//        long count = 0;
-//        for(Rate rate: rateList){
-//            double mid = rate.getMid();
-//            sum +=mid;
-//            count++;
-//        }
-//
-//        return count > 0 ? sum /count : 0.0d;
-//
-////        return rateList.stream().mapToDouble(Rate::getMid).average().orElse(0.0d);
-//    }
 
 }
