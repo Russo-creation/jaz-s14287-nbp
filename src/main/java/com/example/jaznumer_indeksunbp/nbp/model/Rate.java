@@ -1,17 +1,17 @@
 package com.example.jaznumer_indeksunbp.nbp.model;
 
-
-import java.util.List;
-
-public class Root{
-
+public class Rate {
     public String data;
     public double cena;
 
-    public List<Rate> rates;
+    public String effectiveDate;
 
-    public List<Rate> getRates() {
-        return rates;
+    public String getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    public void setEffectiveDate(String effectiveDate) {
+        this.effectiveDate = effectiveDate;
     }
 
     public String getData() {
@@ -30,6 +30,4 @@ public class Root{
         this.cena = cena;
     }
 
-
 }
-

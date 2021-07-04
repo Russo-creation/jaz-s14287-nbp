@@ -29,7 +29,7 @@ public class NbpController {
             @ApiResponse(code = 500, message = "Unexpected Error"),
     })
     @GetMapping(value = "/calculate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<NbpResponse> calculateRootForCurrency(
+    public ResponseEntity<NbpResponse> calculateRootForPrice(
             @ApiParam(name ="startDate",
                     type="string",
                     value= "date",
@@ -43,7 +43,7 @@ public class NbpController {
                     example = "2013-01-31",
                     required = true)
             @RequestParam(defaultValue = "2013-01-31") String endDate){
-        return ResponseEntity.ok(nbpService.calculateRootForCurrency(startDate, endDate));
+        return ResponseEntity.ok(nbpService.calculateRootForGoldPrice(startDate, endDate));
     }
 }
 

@@ -20,9 +20,10 @@ public class NbpService {
         this.nbpApiResponseRepository = nbpApiResponseRepository;
     }
 
-    public NbpResponse calculateRootForCurrency(String startDate, String endDate){
-        String url = "http://api.nbp.pl/api/cenyzlota/"+startDate+"/"+endDate;
-        Root root = restTemplate.getForObject(url, Root.class);
+    public NbpResponse calculateRootForGoldPrice(String startDate, String endDate){
+        // Java token error
+//        String url = "http://api.nbp.pl/api/cenyzlota/"+startDate+"/"+endDate;
+//        Root root = restTemplate.getForObject(url, Root.class);
 
 
 
